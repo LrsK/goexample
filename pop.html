@@ -1,0 +1,21 @@
+<html>
+<head>
+<style>
+    .creature {
+        width: 10px;
+        height: 10px;
+        float: left;
+    }
+</style>
+</head>
+<body>
+
+<div style="width: 200px; height: 50px; background-color: #{{.AvgColor.ToHex}}">
+        {{.AvgColor.ToHex}}
+</div>
+
+{{ range .}}
+<div class="creature" style="background-color: #{{.Color.ToHex}}"></div>
+{{ end }}
+</body>
+</html>

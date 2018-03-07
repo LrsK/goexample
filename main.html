@@ -1,0 +1,41 @@
+<html>
+<head>
+<style>
+    .creature {
+        width: 10px;
+        height: 10px;
+        float: left;
+    }
+</style>
+<script type="text/javascript">
+        window.setInterval("window.reloadPop();", 2000);
+    
+        function reloadPop() {
+            console.log("TICK!");
+            var iframe = document.getElementById('pop');
+            iframe.src = iframe.src;
+        }
+    
+  </script>
+</head>
+<body>
+<h1>World color</h1>
+<div style="width: 200px; height: 50px; background-color: #{{.Color.ToHex}}">
+    {{.Color.ToHex}}
+</div>
+
+<form method="GET">
+        <div>
+                <input type="text" name="r" value="{{.Color.R}}">
+                <input type="text" name="g" value="{{.Color.G}}">
+                <input type="text" name="b" value="{{.Color.B}}">
+                <input type="submit" value="Submit">
+        </div>
+</form>
+
+<h1>World population</h1>
+<iframe id="pop" width="1000px" height="700px" src="http://localhost:8080/pop"></iframe>
+
+</body>
+</html>
+
