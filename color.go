@@ -51,15 +51,29 @@ func mixColorElement(motherElement int, fatherElement int) int {
 	newElement := 0
 	for _, bit := range motherPos {
 		gene := int(math.Exp2(float64(bit)))
-		if motherElement&int(math.Exp2(float64(bit))) != 0 || r.Intn(100) >= 90 {
+		if motherElement&gene != 0 {
 			newElement += gene
+			if r.Intn(100) >= 90 {
+				newElement -= gene
+			}
+		} else {
+			if r.Intn(100) >= 90 {
+				newElement += gene
+			}
 		}
 	}
 
 	for _, bit := range fatherPos {
 		gene := int(math.Exp2(float64(bit)))
-		if fatherElement&int(math.Exp2(float64(bit))) != 0 || r.Intn(100) >= 90 {
+		if fatherElement&gene != 0 {
 			newElement += gene
+			if r.Intn(100) >= 90 {
+				newElement -= gene
+			}
+		} else {
+			if r.Intn(100) >= 90 {
+				newElement += gene
+			}
 		}
 	}
 
